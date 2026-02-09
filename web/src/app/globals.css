@@ -1,0 +1,85 @@
+@import url('https://fonts.googleapis.com/css2?family=VT323&family=Press+Start+2P&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --bg-dark: #0d0d0d;
+  --bg-card: #1a1a1a;
+  --neon-green: #39ff14;
+  --neon-pink: #ff1493;
+  --neon-yellow: #ffff00;
+  --neon-blue: #00bfff;
+  --danger-red: #ff3333;
+}
+
+body {
+  background: var(--bg-dark);
+  color: white;
+  font-family: 'VT323', monospace;
+}
+
+/* Scanlines overlay */
+body::after {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: repeating-linear-gradient(
+    0deg,
+    rgba(0,0,0,0.1) 0px,
+    rgba(0,0,0,0.1) 1px,
+    transparent 1px,
+    transparent 2px
+  );
+  pointer-events: none;
+  z-index: 1000;
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg-dark);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--neon-green);
+  border-radius: 4px;
+}
+
+/* Glow effects */
+.glow-green {
+  text-shadow: 0 0 10px var(--neon-green), 0 0 20px var(--neon-green);
+}
+
+.glow-pink {
+  text-shadow: 0 0 10px var(--neon-pink), 0 0 20px var(--neon-pink);
+}
+
+.glow-yellow {
+  text-shadow: 0 0 10px var(--neon-yellow), 0 0 20px var(--neon-yellow);
+}
+
+.box-glow-green {
+  box-shadow: 0 0 20px rgba(57, 255, 20, 0.3);
+}
+
+.box-glow-pink {
+  box-shadow: 0 0 20px rgba(255, 20, 147, 0.3);
+}
+
+/* Cell number colors */
+.cell-1 { color: var(--neon-blue); }
+.cell-2 { color: var(--neon-green); }
+.cell-3 { color: var(--danger-red); }
+.cell-4 { color: #9400d3; }
+.cell-5 { color: #8b0000; }
+.cell-6 { color: #008b8b; }
+.cell-7 { color: #000; }
+.cell-8 { color: #808080; }
